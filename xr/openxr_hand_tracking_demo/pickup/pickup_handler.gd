@@ -101,9 +101,10 @@ func _physics_process(delta) -> void:
 		# While OpenXR can return this as a boolean, there is a lot of
 		# difference in handling thresholds between platforms.
 		# So we implement our own logic here.
-		var pickup_value : float = controller.get_float(pickup_action)
-		var threshold : float = 0.4 if was_pickup_pressed else 0.6
-		pickup_pressed = pickup_value > threshold
+		#var pickup_value : float = controller.get_float(pickup_action)
+		#var threshold : float = 0.4 if was_pickup_pressed else 0.6
+		#pickup_pressed = pickup_value > threshold
+		pickup_pressed = controller.is_button_pressed("trigger_click")
 
 	# Do we need to let go?
 	if picked_up_body and not pickup_pressed:
